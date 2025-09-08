@@ -1,0 +1,11 @@
+{
+  "id": "cafeteria-robo-connector",
+  "name": "Cafeteria Robo Connector",
+  "icon": "robot",
+  "color": "#00A8E8",
+  "menu": [
+    { "title": "Dashboard", "icon": "home", "path": "/dashboard" },
+    { "title": "Book Slot", "icon": "calendar", "path": "/workflows/smart-slot-booking" },
+    { "title": "Settings", "icon": "settings", "path": "/settings" }
+  ]
+}

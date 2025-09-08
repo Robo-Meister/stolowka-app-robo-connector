@@ -1,0 +1,56 @@
+{
+  "type": "workflow",
+  "code": "smart-slot-booking",
+  "name": "Smart Slot Booking",
+  "description": "Automatically assign meal preparation and delivery slots.",
+  "category": "operations",
+  "version": "1.0.0",
+  "fields": [
+    {"id": "order_id", "type": "string", "name": "Order ID"},
+    {"id": "slot_time", "type": "datetime", "name": "Slot Time"}
+  ],
+  "steps": [
+    {
+      "step_id": "collect-order",
+      "name": "Collect Order Details",
+      "description": "Gather user order information.",
+      "optional": false,
+      "required_manual": false,
+      "retry_on_failure": true,
+      "group": "ordering",
+      "type": "task",
+      "level": "info",
+      "inputs": ["user_id", "meal_selection"],
+      "outputs": ["order_id"],
+      "next_steps": ["reserve-slot"]
+    },
+    {
+      "step_id": "reserve-slot",
+      "name": "Reserve Preparation Slot",
+      "description": "Book a preparation slot for the order.",
+      "optional": false,
+      "required_manual": false,
+      "retry_on_failure": true,
+      "group": "scheduling",
+      "type": "automation",
+      "level": "info",
+      "inputs": ["order_id"],
+      "outputs": ["slot_time"],
+      "next_steps": ["notify-user"]
+    },
+    {
+      "step_id": "notify-user",
+      "name": "Notify User",
+      "description": "Send confirmation to the user.",
+      "optional": true,
+      "required_manual": false,
+      "retry_on_failure": false,
+      "group": "communication",
+      "type": "task",
+      "level": "info",
+      "inputs": ["order_id", "slot_time"],
+      "outputs": ["notification_id"],
+      "next_steps": []
+    }
+  ]
+}
