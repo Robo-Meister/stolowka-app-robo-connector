@@ -1,0 +1,53 @@
+{
+  "id": "cafeteria-robo-connector",
+  "key": "cafeteria_robo",
+  "name": "Cafeteria Robo Connector",
+  "description": "Automates cafeteria operations with robotic integration.",
+  "version": "1.0.0",
+  "entry": "./app.json",
+  "workflows": [
+    "./workflows/smart-slot-booking.json"
+  ],
+  "documents": ["../docs/handbook.md"],
+  "regulations": ["../docs/gdpr.md"],
+  "integrations": ["erp", "crm"],
+  "default_locale": "en-US",
+  "supported_locales": ["en-US", "pl-PL"],
+  "default_region": "eu-central",
+  "supported_regions": ["eu-central", "us-east"],
+  "mission": "Simplify meal ordering and robotic delivery.",
+  "outcomes": [
+    {"name": "Faster service", "description": "Reduce wait times by automating slot booking."}
+  ],
+  "kpis": [
+    {"name": "Average order processing time", "target": "Under 1 minute"}
+  ],
+  "prerequisites": ["API access to ordering system"],
+  "pricing_levers": [
+    {"name": "number_of_meals", "description": "Monthly meal count influencing pricing"}
+  ],
+  "badges": ["beta"],
+  "install": [
+    "Create API token",
+    "Configure endpoints"
+  ],
+  "roles": {
+    "manager": "Oversees operations and configuration",
+    "robot": "Executes delivery tasks"
+  },
+  "demo_assets": {
+    "video": "https://example.com/demo.mp4"
+  },
+  "architecture_diagram": "../docs/architecture.md",
+  "region_overrides": {
+    "us-east": {
+      "regulations": ["../docs/fda.md"]
+    }
+  },
+  "i18n": {
+    "pl-PL": {
+      "name": "Łącznik Robo Stołówki",
+      "description": "Automatyzuje działanie stołówki."
+    }
+  }
+}
